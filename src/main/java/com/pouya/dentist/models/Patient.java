@@ -1,5 +1,7 @@
 package com.pouya.dentist.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -7,6 +9,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "patients")
 @DiscriminatorValue("PATIENT")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Patient extends User {
 
     private String insuranceNumber;
