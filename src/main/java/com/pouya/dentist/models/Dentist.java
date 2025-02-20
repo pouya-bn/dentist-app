@@ -1,0 +1,42 @@
+package com.pouya.dentist.models;
+
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "dentists")
+@DiscriminatorValue("DENTIST")
+public class Dentist extends User {
+    private String licenseNumber;
+    private String specialization;
+
+    public Dentist() {
+        super();
+    }
+
+    public Dentist(String username, String email, String phone, String password, String licenseNumber, String specialization, LocalDate dateOfBirth) {
+        super(username, email, phone, password, dateOfBirth);
+        this.licenseNumber = licenseNumber;
+        this.specialization = specialization;
+    }
+
+    // Getters and setters for additional fields
+    public String getLicenseNumber() {
+        return licenseNumber;
+    }
+
+    public void setLicenseNumber(String licenseNumber) {
+        this.licenseNumber = licenseNumber;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+}
