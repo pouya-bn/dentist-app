@@ -1,12 +1,11 @@
 package com.pouya.dentist.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -24,16 +23,20 @@ public class Post {
     private LocalDateTime createdDate;
 
     @ManyToOne
-    @JoinColumn(name = "board_id")
+    @JoinColumn(name = "board_id", insertable = false, updatable = false)
     private Board board;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIdentityReference(alwaysAsId = true)
-    private List<Comment> comments;
+    @Column(name = "board_id")
+    @JsonProperty("board_id")
+    private Integer boardId;
+
+    @Column(name = "user_id")
+    @JsonProperty("user_id")
+    private Integer userId;
 
     public Integer getId() {
         return id;
@@ -67,27 +70,19 @@ public class Post {
         this.createdDate = createdDate;
     }
 
-    public Board getBoard() {
-        return board;
+    public Integer getBoardId() {
+        return boardId;
     }
 
-    public void setBoard(Board board) {
-        this.board = board;
+    public void setBoardId(Integer boardId) {
+        this.boardId = boardId;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

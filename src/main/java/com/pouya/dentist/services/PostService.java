@@ -33,8 +33,8 @@ public class PostService {
         Post post = getPostById(id);
         post.setTitle(postDetails.getTitle());
         post.setContent(postDetails.getContent());
-        post.setBoard(postDetails.getBoard());
-        post.setUser(postDetails.getUser());
+        post.setBoardId(postDetails.getBoardId());
+        post.setUserId(postDetails.getUserId());
         return postRepository.save(post);
     }
 
