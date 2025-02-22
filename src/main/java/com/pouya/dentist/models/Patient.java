@@ -1,6 +1,7 @@
 package com.pouya.dentist.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -25,6 +26,7 @@ public class Patient extends User {
         this.emergencyContact = emergencyContact;
     }
 
+    @JsonProperty("insurance_number")
     public String getInsuranceNumber() {
         return insuranceNumber;
     }
@@ -33,6 +35,7 @@ public class Patient extends User {
         this.insuranceNumber = insuranceNumber;
     }
 
+    @JsonProperty("emergency_contact")
     public String getEmergencyContact() {
         return emergencyContact;
     }

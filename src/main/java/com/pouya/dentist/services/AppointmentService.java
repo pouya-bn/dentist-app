@@ -25,18 +25,18 @@ public class AppointmentService {
     }
 
     public Appointment createAppointment(Appointment appointment) {
-        if (appointment.getAppointmentTime() == null) {
-            appointment.setAppointmentTime(LocalDateTime.now());
+        if (appointment.getTime() == null) {
+            appointment.setTime(LocalDateTime.now());
         }
         return appointmentRepository.save(appointment);
     }
 
     public Appointment updateAppointment(Integer id, Appointment appointmentDetails) {
         Appointment appointment = getAppointmentById(id);
-        appointment.setAppointmentTime(appointmentDetails.getAppointmentTime());
+        appointment.setTime(appointmentDetails.getTime());
         appointment.setStatus(appointmentDetails.getStatus());
-        appointment.setDentist(appointmentDetails.getDentist());
-        appointment.setPatient(appointmentDetails.getPatient());
+        appointment.setDentistId(appointmentDetails.getDentistId());
+        appointment.setPatientId(appointmentDetails.getPatientId());
         return appointmentRepository.save(appointment);
     }
 

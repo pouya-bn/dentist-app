@@ -1,6 +1,7 @@
 package com.pouya.dentist.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
@@ -74,6 +75,7 @@ public abstract class User {
         this.password = password;
     }
 
+    @JsonProperty("date_of_birth")
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }

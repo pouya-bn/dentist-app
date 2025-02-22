@@ -1,6 +1,7 @@
 package com.pouya.dentist.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -26,7 +27,7 @@ public class Dentist extends User {
         this.specialization = specialization;
     }
 
-    // Getters and setters for additional fields
+    @JsonProperty("license_number")
     public String getLicenseNumber() {
         return licenseNumber;
     }

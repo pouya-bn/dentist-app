@@ -1,5 +1,6 @@
 package com.pouya.dentist.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -11,16 +12,14 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private LocalDateTime appointmentTime;
+    private LocalDateTime time;
     private String status;
 
-    @ManyToOne
-    @JoinColumn(name = "dentist_id")
-    private Dentist dentist;
+    @Column(name = "dentist_id")
+    private Integer dentistId;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
+    @Column(name = "patient_id")
+    private Integer patientId;
 
     public Integer getId() {
         return id;
@@ -30,12 +29,12 @@ public class Appointment {
         this.id = id;
     }
 
-    public LocalDateTime getAppointmentTime() {
-        return appointmentTime;
+    public LocalDateTime getTime() {
+        return time;
     }
 
-    public void setAppointmentTime(LocalDateTime appointmentTime) {
-        this.appointmentTime = appointmentTime;
+    public void setTime(LocalDateTime time) {
+        this.time = time;
     }
 
     public String getStatus() {
@@ -46,19 +45,21 @@ public class Appointment {
         this.status = status;
     }
 
-    public Dentist getDentist() {
-        return dentist;
+    @JsonProperty("dentist_id")
+    public Integer getDentistId() {
+        return dentistId;
     }
 
-    public void setDentist(Dentist dentist) {
-        this.dentist = dentist;
+    public void setDentistId(Integer dentistId) {
+        this.dentistId = dentistId;
     }
 
-    public Patient getPatient() {
-        return patient;
+    @JsonProperty("patient_id")
+    public Integer getPatientId() {
+        return patientId;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setPatientId(Integer patientId) {
+        this.patientId = patientId;
     }
 }
