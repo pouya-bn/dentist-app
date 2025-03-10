@@ -1,14 +1,12 @@
 package com.pouya.dentist.models;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "comments")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +25,14 @@ public class Comment {
     @JoinColumn(name = "user_id")
     private User user;
 
-    // Getters and setters
+    @Transient
+    @JsonProperty("post_id")
+    private Integer postId;
+
+    @Transient
+    @JsonProperty("user_id")
+    private Integer userId;
+
     public Integer getId() {
         return id;
     }
@@ -66,5 +71,23 @@ public class Comment {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @JsonProperty("post_id")
+    public Integer getPostId() {
+        return (post != null) ? post.getId() : postId;
+    }
+
+    public void setPostId(Integer postId) {
+        this.postId = postId;
+    }
+
+    @JsonProperty("user_id")
+    public Integer getUserId() {
+        return (user != null) ? user.getId() : userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

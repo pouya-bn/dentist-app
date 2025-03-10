@@ -1,8 +1,6 @@
 package com.pouya.dentist.models;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -12,7 +10,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "dentists")
 @DiscriminatorValue("DENTIST")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Dentist extends User {
     private String licenseNumber;
     private String specialization;

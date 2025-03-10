@@ -26,7 +26,7 @@ public class BoardController {
     }
 
     @PostMapping
-    public Board createBoard(@RequestBody Map<String, Object> boardRequest) { // Change to Map
+    public Board createBoard(@RequestBody Map<String, Object> boardRequest) {
         String name = (String) boardRequest.get("name");
         String description = (String) boardRequest.get("description");
         List<Integer> userIds = (List<Integer>) boardRequest.get("user_ids");
@@ -35,8 +35,8 @@ public class BoardController {
         Board board = new Board();
         board.setName(name);
         board.setDescription(description);
-        board.setUserIds(userIds); // Set userIds
-        board.setPostIds(postIds); // Set postIds
+        board.setUserIds(userIds);
+        board.setPostIds(postIds);
 
         return boardService.createBoard(board);
     }
@@ -46,10 +46,10 @@ public class BoardController {
         Board existingBoard = boardService.getBoardById(id);
         existingBoard.setName(board.getName());
         existingBoard.setDescription(board.getDescription());
-        existingBoard.setUsers(board.getUsers()); // Consider if you still need to update full users/posts
-        existingBoard.setPosts(board.getPosts()); // Consider if you still need to update full users/posts
-        existingBoard.setUserIds(board.getUserIds()); // Keep these for ID updates if needed
-        existingBoard.setPostIds(board.getPostIds()); // Keep these for ID updates if needed
+        existingBoard.setUsers(board.getUsers());
+        existingBoard.setPosts(board.getPosts());
+        existingBoard.setUserIds(board.getUserIds());
+        existingBoard.setPostIds(board.getPostIds());
         return boardService.updateBoard(id, board);
     }
 

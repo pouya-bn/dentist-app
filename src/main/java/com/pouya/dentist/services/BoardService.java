@@ -21,10 +21,10 @@ public class BoardService {
     private BoardRepository boardRepository;
 
     @Autowired
-    private UserRepository userRepository; // Inject UserRepository
+    private UserRepository userRepository;
 
     @Autowired
-    private PostRepository postRepository; // Inject PostRepository
+    private PostRepository postRepository;
 
     public List<Board> getAllBoards() {
         return boardRepository.findAll();
@@ -65,7 +65,6 @@ public class BoardService {
         Board board = getBoardById(id);
         board.setName(boardDetails.getName());
         board.setDescription(boardDetails.getDescription());
-        // Keep or adjust user/post updates based on your requirements. Consider updating via IDs as well.
         board.setUsers(boardDetails.getUsers());
         return boardRepository.save(board);
     }
