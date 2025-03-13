@@ -3,10 +3,10 @@ package com.pouya.dentist.services;
 import com.pouya.dentist.exceptions.ResourceNotFoundException;
 import com.pouya.dentist.models.Dentist;
 import com.pouya.dentist.models.Patient;
-import com.pouya.dentist.models.PatientCase;
+import com.pouya.dentist.models.Treatment;
 import com.pouya.dentist.repositories.DentistRepository;
-import com.pouya.dentist.repositories.PatientCaseRepository;
 import com.pouya.dentist.repositories.PatientRepository;
+import com.pouya.dentist.repositories.TreatmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,10 +15,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class PatientCaseService {
+public class TreatmentService {
 
     @Autowired
-    private PatientCaseRepository patientCaseRepository;
+    private TreatmentRepository treatmentRepository;
 
     @Autowired
     private PatientRepository patientRepository;
@@ -27,20 +27,20 @@ public class PatientCaseService {
     private DentistRepository dentistRepository;
 
     @Transactional(readOnly = true)
-    public List<PatientCase> getAllCases() {
-        return patientCaseRepository.findAll();
+    public List<Treatment> getAllTreatments() {
+        return treatmentRepository.findAll();
     }
 
     @Transactional(readOnly = true)
-    public PatientCase getCaseById(Integer id) {
-        return patientCaseRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("PatientCase not found with id " + id));
+    public Treatment getTreatmentById(Integer id) {
+        return treatmentRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Treatment not found with id " + id));
     }
 
     @Transactional
-    public PatientCase createCase(PatientCase patientCase) {
-        Integer patientId = patientCase.getPatient_id();
-        Integer dentistId = patientCase.getDentist_id();
+    public Treatment createTreatment(Treatment treatment) {
+        Integer patientId = treatment.getPatient_id();
+        Integer dentistId = treatment.getDentist_id();
 
         if (patientId == null || dentistId == null) {
             throw new IllegalArgumentException("patient_id and dentist_id must be provided.");
@@ -51,39 +51,39 @@ public class PatientCaseService {
         Dentist dentist = dentistRepository.findById(dentistId)
                 .orElseThrow(() -> new ResourceNotFoundException("Dentist not found with id " + dentistId));
 
-        patientCase.setPatient(patient);
-        patientCase.setDentist(dentist);
-        patientCase.setCreatedDate(LocalDateTime.now());
-        return patientCaseRepository.save(patientCase);
+        treatment.setPatient(patient);
+        treatment.setDentist(dentist);
+        treatment.setCreatedDate(LocalDateTime.now());
+        return treatmentRepository.save(treatment);
     }
 
     @Transactional
-    public PatientCase updateCase(Integer id, PatientCase caseDetails) {
-        PatientCase existingCase = getCaseById(id);
-        existingCase.setTitle(caseDetails.getTitle());
-        existingCase.setDescription(caseDetails.getDescription());
-        existingCase.setStatus(caseDetails.getStatus());
+    public Treatment updateTreatment(Integer id, Treatment treatment) {
+        Treatment existingTreatment = getTreatmentById(id);
+        existingTreatment.setTitle(treatment.getTitle());
+        existingTreatment.setDescription(treatment.getDescription());
+        existingTreatment.setStatus(treatment.getStatus());
 
-        Integer patientId = caseDetails.getPatient_id();
-        Integer dentistId = caseDetails.getDentist_id();
+        Integer patientId = treatment.getPatient_id();
+        Integer dentistId = treatment.getDentist_id();
 
         if (patientId != null) {
             Patient patient = patientRepository.findById(patientId)
                     .orElseThrow(() -> new ResourceNotFoundException("Patient not found with id " + patientId));
-            existingCase.setPatient(patient);
+            existingTreatment.setPatient(patient);
         }
 
         if (dentistId != null) {
             Dentist dentist = dentistRepository.findById(dentistId)
                     .orElseThrow(() -> new ResourceNotFoundException("Dentist not found with id " + dentistId));
-            existingCase.setDentist(dentist);
+            existingTreatment.setDentist(dentist);
         }
 
-        return patientCaseRepository.save(existingCase);
+        return treatmentRepository.save(existingTreatment);
     }
 
     @Transactional
-    public void deleteCase(Integer id) {
-        patientCaseRepository.deleteById(id);
+    public void deleteTreatment(Integer id) {
+        treatmentRepository.deleteById(id);
     }
 }

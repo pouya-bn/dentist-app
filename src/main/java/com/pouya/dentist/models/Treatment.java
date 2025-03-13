@@ -6,8 +6,8 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "cases")
-public class PatientCase {
+@Table(name = "treatments")
+public class Treatment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -87,7 +87,7 @@ public class PatientCase {
     public void setDentist(Dentist dentist) {
         this.dentist = dentist;
     }
-    
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public Integer getPatient_id() {
         return patient_id;
