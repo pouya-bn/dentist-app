@@ -35,7 +35,12 @@ public class PatientCaseController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCase(@PathVariable Integer id) {
-        patientCaseService.deleteCase(id);
+    public String deleteCase(@PathVariable Integer id) {
+        try {
+            patientCaseService.deleteCase(id);
+            return "Case with id " + id + " deleted successfully";
+        } catch (Exception e) {
+            return "Error deleting case with id " + id;
+        }
     }
 }
