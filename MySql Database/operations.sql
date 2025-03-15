@@ -9,8 +9,6 @@ FROM boards;
 SELECT *
 FROM boards_users;
 SELECT *
-FROM boards_posts;
-SELECT *
 FROM posts;
 SELECT *
 FROM comments;
@@ -20,7 +18,6 @@ SELECT *
 FROM treatments;
 
 DROP TABLE IF EXISTS boards_users;
-DROP TABLE IF EXISTS boards_posts;
 DROP TABLE IF EXISTS appointments;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS posts;
