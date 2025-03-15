@@ -106,27 +106,6 @@ BEGIN
     ORDER BY ts.slot_time;
 END //
 
--- Procedure to post on a board and create association
-CREATE PROCEDURE CreatePostOnBoard(
-    IN title_param VARCHAR(255),
-    IN content_param TEXT,
-    IN board_id_param INT,
-    IN user_id_param INT,
-    OUT new_post_id INT
-)
-BEGIN
-    -- Insert the post
-    INSERT INTO posts (title, content, created_date, board_id, user_id)
-    VALUES (title_param, content_param, NOW(), board_id_param, user_id_param);
-
-    -- Get the new post ID
-    SET new_post_id = LAST_INSERT_ID();
-
-    -- Create the association in boards_posts
-    INSERT INTO boards_posts (board_id, post_id)
-    VALUES (board_id_param, new_post_id);
-END //
-
 -- Procedure to get all posts and comments for a specific board (FIXED)
 CREATE PROCEDURE GetBoardContent(
     IN board_id_param INT
@@ -168,23 +147,6 @@ BEGIN
     WHERE a.dentist_id = dentist_id_param
       AND DATE(a.time) BETWEEN week_start_date AND week_end_date
     ORDER BY a.time;
-END //
-
--- Procedure to get statistics on boards activity
-CREATE PROCEDURE GetBoardsStatistics()
-BEGIN
-    SELECT b.id,
-           b.name,
-           COUNT(DISTINCT bp.post_id) AS post_count,
-           COUNT(DISTINCT c.id)       AS comment_count,
-           COUNT(DISTINCT p.user_id)  AS active_users_count,
-           MAX(p.created_date)        AS last_activity_date
-    FROM boards b
-             LEFT JOIN boards_posts bp ON b.id = bp.board_id
-             LEFT JOIN posts p ON bp.post_id = p.id
-             LEFT JOIN comments c ON p.id = c.post_id
-    GROUP BY b.id
-    ORDER BY post_count DESC;
 END //
 
 -- Procedure to transfer a patient between dentists (reassign treatments and appointments)

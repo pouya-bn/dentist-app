@@ -43,8 +43,3 @@ WHERE id NOT IN (SELECT DISTINCT user_id FROM posts)
 DELETE
 FROM boards_users
 WHERE board_id = 4;
-
--- Delete associations between posts and boards for inactive posts
-DELETE
-FROM boards_posts
-WHERE post_id IN (SELECT id FROM posts WHERE created_date < '2025-01-03');
