@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="405488b6-66cc-4302-867f-bf0dbaa14cf1" name="Changes" comment="Implemented MongoDB files: creations, aggregations and indexing">
+      <change afterPath="$PROJECT_DIR$/SpringBoot/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/DentistApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/configs/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/controllers/AppointmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/controllers/BoardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/controllers/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/controllers/DentistController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/controllers/PatientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/controllers/PostController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/controllers/TreatmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/exceptions/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/models/Appointment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/models/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/models/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/models/Dentist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/models/Patient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/models/Post.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/models/Treatment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/repositories/AppointmentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/repositories/BoardRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/repositories/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/repositories/DentistRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/repositories/PatientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/repositories/PostRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/repositories/TreatmentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/services/AppointmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/services/BoardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/services/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/services/DentistService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/services/PatientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/services/PostService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/services/TreatmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/java/com/pouya/dentist/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpringBoot/src/test/java/com/pouya/dentist/DentistApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/DentistApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/configs/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/controllers/AppointmentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/controllers/BoardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/controllers/CommentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/controllers/DentistController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/controllers/PatientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/controllers/PostController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/controllers/TreatmentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/exceptions/ResourceNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/models/Appointment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/models/Board.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/models/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/models/Dentist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/models/Patient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/models/Post.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/models/Treatment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/repositories/AppointmentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/repositories/BoardRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/repositories/CommentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/repositories/DentistRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/repositories/PatientRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/repositories/PostRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/repositories/TreatmentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/services/AppointmentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/services/BoardService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/services/CommentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/services/DentistService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/services/PatientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/services/PostService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/services/TreatmentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pouya/dentist/services/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/pouya/dentist/DentistApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;pouya-bn&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/pouya-bn/dentist-app.git&quot;,
+    &quot;accountId&quot;: &quot;76fc3e43-a39d-4d78-aad2-e61d91e3bd63&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2tEW1ohixYuutsb34WQ1T14Ipl7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DentistApplication.executor": "Run",
+    "Gradle.Build dentist.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DentistApplication.executor": "Run",
+    "android.gradle.sync.needed": "true",
+    "com.codeium.enabled": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "structure",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Projects/dentist",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "MySQL"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\dentist" />
+      <recent name="D:\Projects\dentist\SpringBoot Application" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="DentistApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="dentist.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pouya.dentist.DentistApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="405488b6-66cc-4302-867f-bf0dbaa14cf1" name="Changes" comment="" />
+      <created>1739917501434</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739917501434</updated>
+      <workItem from="1739917503042" duration="939000" />
+      <workItem from="1739950403506" duration="705000" />
+      <workItem from="1739951124595" duration="7952000" />
+      <workItem from="1740064631267" duration="19388000" />
+      <workItem from="1740132181345" duration="16631000" />
+      <workItem from="1740208804285" duration="8977000" />
+      <workItem from="1740233556570" duration="18579000" />
+      <workItem from="1740292999827" duration="8576000" />
+      <workItem from="1740413623746" duration="2457000" />
+      <workItem from="1740578773790" duration="11000" />
+      <workItem from="1741452038884" duration="3834000" />
+      <workItem from="1741507518896" duration="2613000" />
+      <workItem from="1741534540330" duration="13460000" />
+      <workItem from="1741594086481" duration="5451000" />
+      <workItem from="1741614605025" duration="2734000" />
+      <workItem from="1741789556422" duration="23000" />
+      <workItem from="1741874610620" duration="17892000" />
+      <workItem from="1742033710338" duration="638000" />
+      <workItem from="1742069015001" duration="4900000" />
+      <workItem from="1742074237184" duration="1020000" />
+      <workItem from="1742075290298" duration="466000" />
+      <workItem from="1742112844761" duration="771000" />
+      <workItem from="1742114706323" duration="518000" />
+      <workItem from="1742115432710" duration="212000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1739917735982</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739917735982</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added Dentist domain model and CRUD functionality and implemented core components for Dentist management:&#10;- Created User and Dentist entity models with JPA inheritance&#10;- Added DentistRepository, DentistService, and DentistController&#10;- Implemented global exception handling for resource not found scenarios&#10;- Provided basic CRUD operations for Dentist entities">
+      <option name="closed" value="true" />
+      <created>1740072627944</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740072627944</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated .gitignore to exclude application.properties">
+      <option name="closed" value="true" />
+      <created>1740073462246</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740073462246</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added Patient domain model and CRUD functionality&#10;- Created Patient entity model extending User with additional patient-specific fields&#10;- Implemented PatientRepository, PatientService, and PatientController&#10;- Added CRUD operations for Patient entities&#10;- Integrated with existing exception handling mechanism">
+      <option name="closed" value="true" />
+      <created>1740083773856</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740083773856</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Appointment domain model and CRUD functionality&#10;- Created Appointment entity model with relationships to Dentist and Patient&#10;- Implemented AppointmentRepository, AppointmentService, and AppointmentController&#10;- Added CRUD operations for Appointment entities&#10;- Integrated with existing exception handling mechanism">
+      <option name="closed" value="true" />
+      <created>1740084957617</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740084957617</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added Board, Post, and Comment domain models with CRUD functionality&#10;- Created Board, Post, and Comment entity models with relationships&#10;- Implemented corresponding repositories, services, and controllers&#10;- Added CRUD operations for Board, Post, and Comment entities&#10;- Integrated with existing exception handling mechanism">
+      <option name="closed" value="true" />
+      <created>1740088259977</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740088259977</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added PatientCase domain model with CRUD functionality&#10;- Created PatientCase entity model with relationships to Patient and Dentist&#10;- Implemented PatientCaseRepository, PatientCaseService, and PatientCaseController&#10;- Added CRUD operations for PatientCase entities&#10;- Integrated with existing exception handling mechanism">
+      <option name="closed" value="true" />
+      <created>1740088745523</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740088745523</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Updated User, Dentist, Patient, Appointment, PatientController, AppointmentController and AppointmentService">
+      <option name="closed" value="true" />
+      <created>1740245566661</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740245566661</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Updated Post, PostController and PostService">
+      <option name="closed" value="true" />
+      <created>1740251424647</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1740251424647</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Implemented UserRepository and UserService. Updated Post, User, Board, BoardController, BoardService">
+      <option name="closed" value="true" />
+      <created>1741544743754</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1741544743755</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Updated Comment, CommentController, Board, BoardController, BoardService">
+      <option name="closed" value="true" />
+      <created>1741597603981</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1741597603981</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Updated PatientCase, PatientCaseController and PatientCaseService">
+      <option name="closed" value="true" />
+      <created>1741881941330</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1741881941330</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Refactored PatientCase to Treatment">
+      <option name="closed" value="true" />
+      <created>1741897385661</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1741897385661</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Implemented MySql commands in separate files">
+      <option name="closed" value="true" />
+      <created>1741899489310</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1741899489310</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Updated creations, insertions and operations SQL files to insure normalization rules">
+      <option name="closed" value="true" />
+      <created>1742072193362</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1742072193362</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Updated procedures and deletions SQL files">
+      <option name="closed" value="true" />
+      <created>1742072333488</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1742072333488</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Implemented MongoDB files: creations, aggregations and indexing">
+      <option name="closed" value="true" />
+      <created>1742074034973</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1742074034973</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="Added Dentist domain model and CRUD functionality and implemented core components for Dentist management:&#10;- Created User and Dentist entity models with JPA inheritance&#10;- Added DentistRepository, DentistService, and DentistController&#10;- Implemented global exception handling for resource not found scenarios&#10;- Provided basic CRUD operations for Dentist entities" />
+    <MESSAGE value="Updated .gitignore to exclude application.properties" />
+    <MESSAGE value="Added Patient domain model and CRUD functionality&#10;- Created Patient entity model extending User with additional patient-specific fields&#10;- Implemented PatientRepository, PatientService, and PatientController&#10;- Added CRUD operations for Patient entities&#10;- Integrated with existing exception handling mechanism" />
+    <MESSAGE value="Added Appointment domain model and CRUD functionality&#10;- Created Appointment entity model with relationships to Dentist and Patient&#10;- Implemented AppointmentRepository, AppointmentService, and AppointmentController&#10;- Added CRUD operations for Appointment entities&#10;- Integrated with existing exception handling mechanism" />
+    <MESSAGE value="Added Board, Post, and Comment domain models with CRUD functionality&#10;- Created Board, Post, and Comment entity models with relationships&#10;- Implemented corresponding repositories, services, and controllers&#10;- Added CRUD operations for Board, Post, and Comment entities&#10;- Integrated with existing exception handling mechanism" />
+    <MESSAGE value="Added PatientCase domain model with CRUD functionality&#10;- Created PatientCase entity model with relationships to Patient and Dentist&#10;- Implemented PatientCaseRepository, PatientCaseService, and PatientCaseController&#10;- Added CRUD operations for PatientCase entities&#10;- Integrated with existing exception handling mechanism" />
+    <MESSAGE value="Updated User, Dentist, Patient, Appointment, PatientController, AppointmentController and AppointmentService" />
+    <MESSAGE value="Updated Post, PostController and PostService" />
+    <MESSAGE value="Implemented UserRepository and UserService. Updated Post, User, Board, BoardController, BoardService" />
+    <MESSAGE value="Updated Comment, CommentController, Board, BoardController, BoardService" />
+    <MESSAGE value="Updated PatientCase, PatientCaseController and PatientCaseService" />
+    <MESSAGE value="Refactored PatientCase to Treatment" />
+    <MESSAGE value="Implemented MySql commands in separate files" />
+    <MESSAGE value="Updated creations, insertions and operations SQL files to insure normalization rules" />
+    <MESSAGE value="Updated procedures and deletions SQL files" />
+    <MESSAGE value="Implemented MongoDB files: creations, aggregations and indexing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented MongoDB files: creations, aggregations and indexing" />
+  </component>
+</project>
