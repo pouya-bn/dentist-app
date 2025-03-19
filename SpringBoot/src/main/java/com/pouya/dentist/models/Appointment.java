@@ -21,6 +21,16 @@ public class Appointment {
     @Column(name = "patient_id")
     private Integer patientId;
 
+    public Appointment() {
+    }
+
+    public Appointment(LocalDateTime time, String status, Integer dentistId, Integer patientId) {
+        this.time = time;
+        this.status = status;
+        this.dentistId = dentistId;
+        this.patientId = patientId;
+    }
+
     public Integer getId() {
         return id;
     }

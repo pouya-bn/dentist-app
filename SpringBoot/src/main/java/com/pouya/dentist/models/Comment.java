@@ -33,6 +33,16 @@ public class Comment {
     @JsonProperty("user_id")
     private Integer userId;
 
+    public Comment() {
+    }
+
+    public Comment(String content, LocalDateTime createdDate, Integer postId, Integer userId) {
+        this.content = content;
+        this.createdDate = createdDate;
+        this.postId = postId;
+        this.userId = userId;
+    }
+
     public Integer getId() {
         return id;
     }

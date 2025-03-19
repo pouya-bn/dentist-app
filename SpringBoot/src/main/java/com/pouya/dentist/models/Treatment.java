@@ -32,6 +32,18 @@ public class Treatment {
     @Transient
     private Integer dentist_id;
 
+    public Treatment() {
+    }
+
+    public Treatment(String title, String description, String status, LocalDateTime createdDate, Integer patient_id, Integer dentist_id) {
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.createdDate = createdDate;
+        this.patient_id = patient_id;
+        this.dentist_id = dentist_id;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -35,6 +35,17 @@ public class Post {
     @JsonProperty("user_id")
     private Integer userId;
 
+    public Post() {
+    }
+
+    public Post(String title, String content, LocalDateTime createdDate, Integer boardId, Integer userId) {
+        this.title = title;
+        this.content = content;
+        this.createdDate = createdDate;
+        this.boardId = boardId;
+        this.userId = userId;
+    }
+
     public Integer getId() {
         return id;
     }

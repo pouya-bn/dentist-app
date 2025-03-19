@@ -28,12 +28,7 @@ public class Board {
     )
     private List<User> users = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "boards_posts",
-            joinColumns = @JoinColumn(name = "board_id"),
-            inverseJoinColumns = @JoinColumn(name = "post_id")
-    )
+    @OneToMany(mappedBy = "board")
     private List<Post> posts = new ArrayList<>();
 
     @Transient
@@ -43,6 +38,14 @@ public class Board {
     @Transient
     @JsonProperty("post_ids")
     private List<Integer> postIds;
+
+    public Board() {
+    }
+
+    public Board(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public Integer getId() {
         return id;
