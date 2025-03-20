@@ -36,11 +36,6 @@ public class AppointmentController {
 
     @DeleteMapping("/{id}")
     public String deleteAppointment(@PathVariable Integer id) {
-        try {
-            appointmentService.deleteAppointment(id);
-            return "Appointment with id " + id + " deleted successfully";
-        } catch (Exception e) {
-            return "Error deleting appointment with id " + id;
-        }
+       return appointmentService.deleteAppointment(id);
     }
 }

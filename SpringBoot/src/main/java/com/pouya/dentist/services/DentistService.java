@@ -39,7 +39,16 @@ public class DentistService {
         return dentistRepository.save(dentist);
     }
 
-    public void deleteDentist(Integer id) {
-        dentistRepository.deleteById(id);
+    public String deleteDentist(Integer id) {
+        try {
+            getDentistById(id);
+            dentistRepository.deleteById(id);
+            return "Dentist with id " + id + " deleted successfully";
+        } catch (Exception e) {
+            if (e instanceof ResourceNotFoundException) {
+                return "Dentist not found with id " + id;
+            }
+            return "Error deleting dentist with id " + id;
+        }
     }
 }

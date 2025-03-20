@@ -83,7 +83,16 @@ public class TreatmentService {
     }
 
     @Transactional
-    public void deleteTreatment(Integer id) {
-        treatmentRepository.deleteById(id);
+    public String deleteTreatment(Integer id) {
+        try {
+            getTreatmentById(id);
+            treatmentRepository.deleteById(id);
+            return "Treatment with id " + id + " deleted successfully";
+        } catch (Exception e) {
+            if (e instanceof ResourceNotFoundException) {
+                return "Treatment not found with id " + id;
+            }
+            return "Error deleting treatment with id " + id;
+        }
     }
 }

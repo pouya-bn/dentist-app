@@ -36,11 +36,6 @@ public class TreatmentController {
 
     @DeleteMapping("/{id}")
     public String deleteTreatment(@PathVariable Integer id) {
-        try {
-            treatmentService.deleteTreatment(id);
-            return "Treatment with id " + id + " deleted successfully";
-        } catch (Exception e) {
-            return "Error deleting treatment with id " + id;
-        }
+        return treatmentService.deleteTreatment(id);
     }
 }

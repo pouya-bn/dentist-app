@@ -27,39 +27,16 @@ public class BoardController {
 
     @PostMapping
     public Board createBoard(@RequestBody Map<String, Object> boardRequest) {
-        String name = (String) boardRequest.get("name");
-        String description = (String) boardRequest.get("description");
-        List<Integer> userIds = (List<Integer>) boardRequest.get("user_ids");
-        List<Integer> postIds = (List<Integer>) boardRequest.get("post_ids");
-
-        Board board = new Board();
-        board.setName(name);
-        board.setDescription(description);
-        board.setUserIds(userIds);
-        board.setPostIds(postIds);
-
-        return boardService.createBoard(board);
+        return boardService.createBoard(boardRequest);
     }
 
     @PutMapping("/{id}")
     public Board updateBoard(@PathVariable Integer id, @RequestBody Board board) {
-        Board existingBoard = boardService.getBoardById(id);
-        existingBoard.setName(board.getName());
-        existingBoard.setDescription(board.getDescription());
-        existingBoard.setUsers(board.getUsers());
-        existingBoard.setPosts(board.getPosts());
-        existingBoard.setUserIds(board.getUserIds());
-        existingBoard.setPostIds(board.getPostIds());
         return boardService.updateBoard(id, board);
     }
 
     @DeleteMapping("/{id}")
     public String deleteBoard(@PathVariable Integer id) {
-        try {
-            boardService.deleteBoard(id);
-            return "Board with id " + id + " deleted successfully";
-        } catch (Exception e) {
-            return "Error deleting board with id " + id;
-        }
+        return boardService.deleteBoard(id);
     }
 }

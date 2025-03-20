@@ -36,11 +36,6 @@ public class CommentController {
 
     @DeleteMapping("/{id}")
     public String deleteComment(@PathVariable Integer id) {
-        try {
-            commentService.deleteComment(id);
-            return "Comment with id " + id + " deleted successfully";
-        } catch (Exception e) {
-            return "Error deleting comment with id " + id;
-        }
+        return commentService.deleteComment(id);
     }
 }

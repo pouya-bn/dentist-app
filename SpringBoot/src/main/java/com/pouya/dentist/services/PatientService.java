@@ -39,7 +39,16 @@ public class PatientService {
         return patientRepository.save(patient);
     }
 
-    public void deletePatient(Integer id) {
-        patientRepository.deleteById(id);
+    public String deletePatient(Integer id) {
+        try {
+            getPatientById(id);
+            patientRepository.deleteById(id);
+            return "Patient with id " + id + " deleted successfully";
+        } catch (Exception e) {
+            if (e instanceof ResourceNotFoundException) {
+                return "Patient not found with id " + id;
+            }
+            return "Error deleting patient with id " + id;
+        }
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BoardService {
@@ -36,10 +37,19 @@ public class BoardService {
     }
 
     @Transactional
-    public Board createBoard(Board board) {
+    public Board createBoard(Map<String, Object> boardRequest) {
+        String name = (String) boardRequest.get("name");
+        String description = (String) boardRequest.get("description");
+        List<Integer> userIds = (List<Integer>) boardRequest.get("user_ids");
+        List<Integer> postIds = (List<Integer>) boardRequest.get("post_ids");
+
+        Board board = new Board();
+        board.setName(name);
+        board.setDescription(description);
+
         List<User> users = new ArrayList<>();
-        if (board.getInputUserIds() != null) {
-            for (Integer userId : board.getInputUserIds()) {
+        if (userIds != null) {
+            for (Integer userId : userIds) {
                 User user = userRepository.findById(userId)
                         .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
                 users.add(user);
@@ -48,8 +58,8 @@ public class BoardService {
         board.setUsers(users);
 
         List<Post> posts = new ArrayList<>();
-        if (board.getInputPostIds() != null) {
-            for (Integer postId : board.getInputPostIds()) {
+        if (postIds != null) {
+            for (Integer postId : postIds) {
                 Post post = postRepository.findById(postId)
                         .orElseThrow(() -> new ResourceNotFoundException("Post not found with id: " + postId));
                 posts.add(post);
@@ -60,16 +70,28 @@ public class BoardService {
         return boardRepository.save(board);
     }
 
-
+    @Transactional
     public Board updateBoard(Integer id, Board boardDetails) {
-        Board board = getBoardById(id);
-        board.setName(boardDetails.getName());
-        board.setDescription(boardDetails.getDescription());
-        board.setUsers(boardDetails.getUsers());
-        return boardRepository.save(board);
+        Board existingBoard = getBoardById(id);
+        existingBoard.setName(boardDetails.getName());
+        existingBoard.setDescription(boardDetails.getDescription());
+        existingBoard.setUsers(boardDetails.getUsers());
+        existingBoard.setPosts(boardDetails.getPosts());
+        existingBoard.setUserIds(boardDetails.getUserIds());
+        existingBoard.setPostIds(boardDetails.getPostIds());
+        return boardRepository.save(existingBoard);
     }
 
-    public void deleteBoard(Integer id) {
-        boardRepository.deleteById(id);
+    public String deleteBoard(Integer id) {
+        try {
+            getBoardById(id);
+            boardRepository.deleteById(id);
+            return "Board with id " + id + " deleted successfully";
+        } catch (Exception e) {
+            if (e instanceof ResourceNotFoundException) {
+                return "Board not found with id " + id;
+            }
+            return "Error deleting board with id " + id;
+        }
     }
 }

@@ -36,11 +36,6 @@ public class PatientController {
 
     @DeleteMapping("/{id}")
     public String deletePatient(@PathVariable Integer id) {
-        try {
-            patientService.deletePatient(id);
-            return "Patient with id " + id + " deleted successfully";
-        } catch (Exception e) {
-            return "Error deleting patient with id " + id;
-        }
+        return patientService.deletePatient(id);
     }
 }

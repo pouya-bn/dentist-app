@@ -40,7 +40,16 @@ public class AppointmentService {
         return appointmentRepository.save(appointment);
     }
 
-    public void deleteAppointment(Integer id) {
-        appointmentRepository.deleteById(id);
+    public String deleteAppointment(Integer id) {
+        try {
+            getAppointmentById(id);
+            appointmentRepository.deleteById(id);
+            return "Appointment with id " + id + " deleted successfully";
+        } catch (Exception e) {
+            if (e instanceof ResourceNotFoundException) {
+                return "Appointment not found with id " + id;
+            }
+            return "Error deleting appointment with id " + id;
+        }
     }
 }

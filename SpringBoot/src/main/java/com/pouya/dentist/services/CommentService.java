@@ -78,7 +78,16 @@ public class CommentService {
     }
 
 
-    public void deleteComment(Integer id) {
-        commentRepository.deleteById(id);
+    public String deleteComment(Integer id) {
+        try {
+            getCommentById(id);
+            commentRepository.deleteById(id);
+            return "Comment with id " + id + " deleted successfully";
+        } catch (Exception e) {
+            if (e instanceof ResourceNotFoundException) {
+                return "Comment not found with id " + id;
+            }
+            return "Error deleting comment with id " + id;
+        }
     }
 }
