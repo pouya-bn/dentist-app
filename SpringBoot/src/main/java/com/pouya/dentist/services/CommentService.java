@@ -14,6 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Service class for managing comments.
+ */
 @Service
 public class CommentService {
     @Autowired
@@ -25,15 +28,34 @@ public class CommentService {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Retrieves all comments.
+     * 
+     * @return a list of all comments
+     */
     public List<Comment> getAllComments() {
         return commentRepository.findAll();
     }
 
+    /**
+     * Retrieves a comment by its ID.
+     * 
+     * @param id the ID of the comment
+     * @return the comment with the specified ID
+     * @throws ResourceNotFoundException if the comment is not found
+     */
     public Comment getCommentById(Integer id) {
         return commentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Comment not found with id " + id));
     }
 
+    /**
+     * Creates a new comment with the given details.
+     * 
+     * @param comment the comment to create
+     * @return the created comment
+     * @throws RuntimeException if any user or post ID is not found
+     */
     @Transactional
     public Comment createComment(Comment comment) {
         if (comment.getPostId() != null) {
@@ -53,6 +75,14 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
+    /**
+     * Updates an existing comment with the given details.
+     * 
+     * @param id the ID of the comment to update
+     * @param commentDetails the new details of the comment
+     * @return the updated comment
+     * @throws RuntimeException if the comment is not found
+     */
     @Transactional
     public Comment updateComment(Integer id, Comment commentDetails) {
         Comment existingComment = commentRepository.findById(id)
@@ -77,7 +107,12 @@ public class CommentService {
         return commentRepository.save(existingComment);
     }
 
-
+    /**
+     * Deletes a comment by its ID.
+     * 
+     * @param id the ID of the comment to delete
+     * @return a message indicating the result of the deletion
+     */
     public String deleteComment(Integer id) {
         try {
             getCommentById(id);

@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Service class for managing boards.
+ */
 @Service
 public class BoardService {
 
@@ -27,15 +30,34 @@ public class BoardService {
     @Autowired
     private PostRepository postRepository;
 
+    /**
+     * Retrieves all boards.
+     *
+     * @return a list of all boards
+     */
     public List<Board> getAllBoards() {
         return boardRepository.findAll();
     }
 
+    /**
+     * Retrieves a board by its ID.
+     *
+     * @param id the ID of the board
+     * @return the board with the specified ID
+     * @throws ResourceNotFoundException if the board is not found
+     */
     public Board getBoardById(Integer id) {
         return boardRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Board not found with id " + id));
     }
 
+    /**
+     * Creates a new board with the given details.
+     *
+     * @param boardRequest a map containing the name, description, user IDs, and post IDs of the board
+     * @return the created board
+     * @throws ResourceNotFoundException if any user or post ID is not found
+     */
     @Transactional
     public Board createBoard(Map<String, Object> boardRequest) {
         String name = (String) boardRequest.get("name");
@@ -70,6 +92,14 @@ public class BoardService {
         return boardRepository.save(board);
     }
 
+    /**
+     * Updates the details of an existing board.
+     *
+     * @param id the ID of the board to update
+     * @param boardDetails the new details of the board
+     * @return the updated board
+     * @throws ResourceNotFoundException if the board is not found
+     */
     @Transactional
     public Board updateBoard(Integer id, Board boardDetails) {
         Board existingBoard = getBoardById(id);
@@ -82,6 +112,12 @@ public class BoardService {
         return boardRepository.save(existingBoard);
     }
 
+    /**
+     * Deletes a board by its ID.
+     *
+     * @param id the ID of the board to delete
+     * @return a message indicating the result of the deletion
+     */
     public String deleteBoard(Integer id) {
         try {
             getBoardById(id);

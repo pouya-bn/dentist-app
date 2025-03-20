@@ -14,6 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Service class for managing treatments.
+ */
 @Service
 public class TreatmentService {
 
@@ -26,17 +29,37 @@ public class TreatmentService {
     @Autowired
     private DentistRepository dentistRepository;
 
+    /**
+     * Retrieves all treatments.
+     *
+     * @return a list of all treatments
+     */
     @Transactional(readOnly = true)
     public List<Treatment> getAllTreatments() {
         return treatmentRepository.findAll();
     }
 
+    /**
+     * Retrieves a treatment by its ID.
+     *
+     * @param id the ID of the treatment
+     * @return the treatment with the specified ID
+     * @throws ResourceNotFoundException if the treatment is not found
+     */
     @Transactional(readOnly = true)
     public Treatment getTreatmentById(Integer id) {
         return treatmentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Treatment not found with id " + id));
     }
 
+    /**
+     * Creates a new treatment.
+     *
+     * @param treatment the treatment to create
+     * @return the created treatment
+     * @throws IllegalArgumentException if {@code patient_id} or {@code dentist_id} is null
+     * @throws ResourceNotFoundException if the patient or dentist is not found
+     */
     @Transactional
     public Treatment createTreatment(Treatment treatment) {
         Integer patientId = treatment.getPatient_id();
@@ -57,6 +80,15 @@ public class TreatmentService {
         return treatmentRepository.save(treatment);
     }
 
+    /**
+     * Updates an existing treatment.
+     *
+     * @param id the ID of the treatment to update
+     * @param treatment the updated treatment details
+     * @return the updated treatment
+     * @throws ResourceNotFoundException if the treatment is not found
+     * @throws IllegalArgumentException if {@code patient_id} or {@code dentist_id} is null
+     */
     @Transactional
     public Treatment updateTreatment(Integer id, Treatment treatment) {
         Treatment existingTreatment = getTreatmentById(id);
@@ -82,6 +114,13 @@ public class TreatmentService {
         return treatmentRepository.save(existingTreatment);
     }
 
+    /**
+     * Deletes a treatment by its ID.
+     *
+     * @param id the ID of the treatment to delete
+     * @return a message indicating the result of the deletion
+     * @throws ResourceNotFoundException if the treatment is not found
+     */
     @Transactional
     public String deleteTreatment(Integer id) {
         try {
