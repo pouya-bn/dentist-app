@@ -1,3 +1,12 @@
+-- =================================================================
+-- Sample Data Insertions for Dental Social Network Database
+-- =================================================================
+
+-- =================================================================
+-- Users Table Insertions
+-- Populating the users table with sample dentists (IDs 1-10) and patients (IDs 11-20)
+-- Fields: username, email, phone, password, user_type, date_of_birth
+-- =================================================================
 INSERT INTO users (username, email, phone, password, user_type, date_of_birth)
 VALUES ('johndoe', 'johndoe@example.com', '1234567890', 'password123', 'DENTIST', '1970-01-01'),
        ('maryjohnson', 'maryjohnson@example.com', '1234567891', 'password123', 'DENTIST', '1971-02-02'),
@@ -20,6 +29,12 @@ VALUES ('johndoe', 'johndoe@example.com', '1234567890', 'password123', 'DENTIST'
        ('nancyturner', 'nancyturner@example.com', '1234567808', 'password123', 'PATIENT', '1998-09-09'),
        ('kevinharris', 'kevinharris@example.com', '1234567809', 'password123', 'PATIENT', '1999-10-10');
 
+-- =================================================================
+-- Dentists Table Insertions
+-- Links dentist-type users with their professional information
+-- Fields: id (references users), license_number, specialization
+-- Note: IDs 1-10 correspond to the dentist users created above
+-- =================================================================
 INSERT INTO dentists (id, license_number, specialization)
 VALUES (1, 'LIC001', 'General Dentistry'),
        (2, 'LIC002', 'Orthodontics'),
@@ -32,6 +47,12 @@ VALUES (1, 'LIC001', 'General Dentistry'),
        (9, 'LIC009', 'Implantology'),
        (10, 'LIC010', 'Geriatric Dentistry');
 
+-- =================================================================
+-- Patients Table Insertions
+-- Links patient-type users with their medical information
+-- Fields: id (references users), insurance_number, emergency_contact
+-- Note: IDs 11-20 correspond to the patient users created above
+-- =================================================================
 INSERT INTO patients (id, insurance_number, emergency_contact)
 VALUES (11, 'INS001', '555-123-4567'),
        (12, 'INS002', '555-234-5678'),
@@ -44,6 +65,12 @@ VALUES (11, 'INS001', '555-123-4567'),
        (19, 'INS009', '555-901-2345'),
        (20, 'INS010', '555-012-3456');
 
+-- =================================================================
+-- Appointments Table Insertions
+-- Sample appointments between dentists and patients
+-- Fields: time, status (scheduled/completed/cancelled/rescheduled), dentist_id, patient_id
+-- Note: Times are set in the future (2025) for testing purposes
+-- =================================================================
 INSERT INTO appointments (time, status, dentist_id, patient_id)
 VALUES ('2025-02-01 09:00:00', 'scheduled', 1, 11),
        ('2025-02-01 10:00:00', 'completed', 1, 12),
@@ -56,6 +83,11 @@ VALUES ('2025-02-01 09:00:00', 'scheduled', 1, 11),
        ('2025-02-05 09:00:00', 'completed', 5, 14),
        ('2025-02-05 10:00:00', 'rescheduled', 5, 15);
 
+-- =================================================================
+-- Discussion Boards Table Insertions
+-- Creates various topic-specific discussion boards
+-- Fields: name, description
+-- =================================================================
 INSERT INTO boards (name, description)
 VALUES ('General Discussion', 'A place to discuss general topics related to dentistry.'),
        ('Oral Hygiene Tips', 'Share and learn about maintaining good oral hygiene.'),
@@ -68,6 +100,11 @@ VALUES ('General Discussion', 'A place to discuss general topics related to dent
        ('Appointment Scheduling', 'Discuss appointment-related queries and issues.'),
        ('Dental News', 'Latest news and updates in the field of dentistry.');
 
+-- =================================================================
+-- Forum Posts Table Insertions
+-- Sample posts created by users in different boards
+-- Fields: title, content, created_date, board_id, user_id
+-- =================================================================
 INSERT INTO posts (title, content, created_date, board_id, user_id)
 VALUES ('Welcome to the forum', 'Hello everyone, welcome to our dental forum.', '2025-01-01 10:00:00', 1, 1),
        ('How to brush properly', 'Here are some tips on proper brushing techniques.', '2025-01-02 11:00:00', 2, 2),
@@ -83,6 +120,11 @@ VALUES ('Welcome to the forum', 'Hello everyone, welcome to our dental forum.', 
         13),
        ('New dental technology', 'Exciting advancements in dental tech.', '2025-01-10 19:00:00', 10, 1);
 
+-- =================================================================
+-- Board Memberships Table Insertions
+-- Links users to specific boards they're members of
+-- Fields: board_id, user_id
+-- =================================================================
 INSERT INTO boards_users (board_id, user_id)
 VALUES (1, 1),
        (2, 2),
@@ -95,7 +137,11 @@ VALUES (1, 1),
        (9, 14),
        (10, 15);
 
-
+-- =================================================================
+-- Post Comments Table Insertions
+-- Sample comments on various forum posts
+-- Fields: content, created_date, post_id, user_id
+-- =================================================================
 INSERT INTO comments (content, created_date, post_id, user_id)
 VALUES ('Great to be here!', '2025-01-01 11:00:00', 1, 2),
        ('Looking forward to learning more.', '2025-01-01 12:00:00', 1, 3),
@@ -108,6 +154,12 @@ VALUES ('Great to be here!', '2025-01-01 11:00:00', 1, 2),
        ('I agree, the service is excellent.', '2025-01-08 18:00:00', 8, 14),
        ('I think there are slots on Tuesday.', '2025-01-09 19:00:00', 9, 15);
 
+-- =================================================================
+-- Treatments Table Insertions
+-- Records of dental procedures and treatments
+-- Fields: title, description, status, created_date, patient_id, dentist_id
+-- Status can be: completed, ongoing
+-- =================================================================
 INSERT INTO treatments (title, description, status, created_date, patient_id, dentist_id)
 VALUES ('Routine Checkup', 'Regular dental checkup', 'completed', '2025-01-15 00:00:00', 11, 1),
        ('Teeth Cleaning', 'Professional cleaning', 'completed', '2025-01-16 00:00:00', 12, 1),

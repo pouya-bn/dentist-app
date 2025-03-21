@@ -1,3 +1,7 @@
+-- =================================================================
+-- Sample Data Deletion Operations for Dental Social Network Database
+-- =================================================================
+
 -- Delete a specific user (will cascade to delete associated dentist/patient record)
 DELETE
 FROM users

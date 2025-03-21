@@ -1,3 +1,7 @@
+-- =================================================================
+-- Sample Data Update Operations for Dental Social Network Database
+-- =================================================================
+
 -- Update user information
 UPDATE users
 SET email = 'john.smith.dds@dentalcare.com',
@@ -11,7 +15,7 @@ WHERE id = 1;
 
 -- Update patient emergency contact information
 UPDATE patients
-SET emergency_contact = 'Laura Williams: 5551113333'
+SET emergency_contact = '555-111-3333'
 WHERE id = 6;
 
 -- Update appointment status
