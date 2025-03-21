@@ -1,5 +1,7 @@
-// MongoDB Playground - Creation File
+// =================================================================
+// MongoDB - Creation File
 // Creation of comments collection and populating with sample data
+// =================================================================
 
 // Switch to dentist_db (create if it doesn't exist)
 use("dentist_db");

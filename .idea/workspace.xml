@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="405488b6-66cc-4302-867f-bf0dbaa14cf1" name="Changes" comment="Refactored MySql and MongoDB directories">
+    <list default="true" id="405488b6-66cc-4302-867f-bf0dbaa14cf1" name="Changes" comment="Updated MySql files and added documentation">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySql/creations.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MySql/creations.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySql/deletions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MySql/deletions.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySql/indexes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MySql/indexes.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySql/insertions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MySql/insertions.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySql/procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MySql/procedures.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySql/updates.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MySql/updates.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDB/aggregations.mongodb.js" beforeDir="false" afterPath="$PROJECT_DIR$/MongoDB/aggregations.mongodb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDB/creations.mongodb.js" beforeDir="false" afterPath="$PROJECT_DIR$/MongoDB/creations.mongodb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDB/indexing.mongodb.js" beforeDir="false" afterPath="$PROJECT_DIR$/MongoDB/indexing.mongodb.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpringBoot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +163,7 @@
       <workItem from="1742114706323" duration="518000" />
       <workItem from="1742115432710" duration="534000" />
       <workItem from="1742546553972" duration="1994000" />
-      <workItem from="1742548564540" duration="2703000" />
+      <workItem from="1742548564540" duration="6077000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -319,7 +317,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742115778639</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Updated MySql files and added documentation">
+      <option name="closed" value="true" />
+      <created>1742551813833</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1742551813833</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +362,8 @@
     <MESSAGE value="Implemented MongoDB files: creations, aggregations and indexing" />
     <MESSAGE value="Migrated project from gradle to maven, relocated spring boot application to dedicated directory" />
     <MESSAGE value="Refactored MySql and MongoDB directories" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored MySql and MongoDB directories" />
+    <MESSAGE value="Updated MySql files and added documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated MySql files and added documentation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
