@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="405488b6-66cc-4302-867f-bf0dbaa14cf1" name="Changes" comment="Updated MySql files and added documentation">
+    <list default="true" id="405488b6-66cc-4302-867f-bf0dbaa14cf1" name="Changes" comment="Updated MongoDB files and added documentation">
+      <change afterPath="$PROJECT_DIR$/MySql/triggers.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/59789fba-0043-4bb8-9bbd-696383fb3cbd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/59789fba-0043-4bb8-9bbd-696383fb3cbd.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoDB/aggregations.mongodb.js" beforeDir="false" afterPath="$PROJECT_DIR$/MongoDB/aggregations.mongodb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoDB/creations.mongodb.js" beforeDir="false" afterPath="$PROJECT_DIR$/MongoDB/creations.mongodb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoDB/indexing.mongodb.js" beforeDir="false" afterPath="$PROJECT_DIR$/MongoDB/indexing.mongodb.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpringBoot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,43 +69,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.DentistApplication.executor": "Run",
-    "Gradle.Build dentist.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.DentistApplication.executor": "Run",
-    "android.gradle.sync.needed": "true",
-    "com.codeium.enabled": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "development",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Projects/dentist",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.externalResources",
-    "show.migrate.to.gradle.popup": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.DentistApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build dentist.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DentistApplication.executor&quot;: &quot;Run&quot;,
+    &quot;android.gradle.sync.needed&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/dentist&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalResources&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Projects\dentist" />
@@ -163,7 +162,8 @@
       <workItem from="1742114706323" duration="518000" />
       <workItem from="1742115432710" duration="534000" />
       <workItem from="1742546553972" duration="1994000" />
-      <workItem from="1742548564540" duration="6077000" />
+      <workItem from="1742548564540" duration="7271000" />
+      <workItem from="1742577328813" duration="4314000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -325,7 +325,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742551813833</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Updated MongoDB files and added documentation">
+      <option name="closed" value="true" />
+      <created>1742576413223</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1742576413223</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +371,8 @@
     <MESSAGE value="Migrated project from gradle to maven, relocated spring boot application to dedicated directory" />
     <MESSAGE value="Refactored MySql and MongoDB directories" />
     <MESSAGE value="Updated MySql files and added documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated MySql files and added documentation" />
+    <MESSAGE value="Updated MongoDB files and added documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated MongoDB files and added documentation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
