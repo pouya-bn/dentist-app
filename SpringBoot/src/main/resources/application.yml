@@ -19,3 +19,7 @@ spring:
 
   main:
     web-application-type: servlet
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/dentist_db
