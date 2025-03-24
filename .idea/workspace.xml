@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="405488b6-66cc-4302-867f-bf0dbaa14cf1" name="Changes" comment="Updated MongoDB files and added documentation">
-      <change afterPath="$PROJECT_DIR$/MySql/triggers.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/59789fba-0043-4bb8-9bbd-696383fb3cbd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/59789fba-0043-4bb8-9bbd-696383fb3cbd.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBoot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBoot/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +17,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="dentist" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -164,6 +178,7 @@
       <workItem from="1742546553972" duration="1994000" />
       <workItem from="1742548564540" duration="7271000" />
       <workItem from="1742577328813" duration="4314000" />
+      <workItem from="1742656367297" duration="732000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
